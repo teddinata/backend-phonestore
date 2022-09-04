@@ -125,7 +125,8 @@
 
 </div>
 <!-- /.container-fluid -->
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+{{-- <script src="//cdn.tinymce.com/4/tinymce.min.js"></script> --}}
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
     var editor_config = {
         selector: "textarea.content",

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Middleware;
+// namespace App\Http\Middleware;
 
-use Closure;
-use Illuminate\Http\Request;
+// use Closure;
+// use Illuminate\Http\Request;
 
-class OwnCors
-{
+// class OwnCors
+// {
     /**
      * Handle an incoming request.
      *
@@ -14,22 +14,22 @@ class OwnCors
      * @param \Closure $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
-    {
-        header("Access-Control-Allow-Origin: *");
+    // public function handle(Request $request, Closure $next)
+    // {
+    //     header("Access-Control-Allow-Origin: *");
 
-        $headers = [
-            'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
-            'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization'
-        ];
-        if ($request->getMethod() == "OPTIONS") {
-            return response('OK')
-                ->withHeaders($headers);
-        }
+    //     $headers = [
+    //         'Access-Control-Allow-Methods' => 'POST, GET, OPTIONS, PUT, DELETE',
+    //         'Access-Control-Allow-Headers' => 'Content-Type, X-Auth-Token, Origin, Authorization'
+    //     ];
+    //     if ($request->getMethod() == "OPTIONS") {
+    //         return response('OK')
+    //             ->withHeaders($headers);
+    //     }
 
-        $response = $next($request);
-        foreach ($headers as $key => $value)
-            $response->header($key, $value);
-        return $response;
-    }
-}
+        // $response = $next($request);
+        // foreach ($headers as $key => $value)
+            // $response->header($key, $value);
+        // return $response;
+    // }
+// }

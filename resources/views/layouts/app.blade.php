@@ -66,7 +66,7 @@
         <div class="sidebar-brand-icon">
           <i class="fab fa-apple"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">APPLE STORE</div>
+        <div class="sidebar-brand-text mx-3">APPLE STORE CILACAP</div>
       </a>
 
       <!-- Divider -->

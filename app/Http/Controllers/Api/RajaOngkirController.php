@@ -6,7 +6,7 @@ use App\Models\City;
 use App\Models\Province;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Kavist\RajaOngkir\Facades\RajaOngkir;
+use Illuminate\Support\Facades\Http;
 
 class RajaOngkirController extends Controller
 {
@@ -50,18 +50,24 @@ class RajaOngkirController extends Controller
      */
     public function checkOngkir(Request $request)
     {
-        $cost = RajaOngkir::ongkosKirim([
-            'origin'        => 105, // ID kota/kabupaten asal, 113 adalah kode kota Cilacap
-            'destination'   => $request->city_destination, // ID kota/kabupaten tujuan
-            'weight'        => $request->weight, // berat barang dalam gram
-            'courier'       => $request->courier // kode kurir pengiriman: ['jne', 'tiki', 'pos'] untuk starter
-        ])->get();
+        //Fetch Rest API
+        $response = Http::withHeaders([
+            //api key rajaongkir
+            'key'          => config('services.rajaongkir.key')
+        ])->post('https://api.rajaongkir.com/starter/cost', [
+
+            //send data
+            'origin'      => 113, // ID kota Demak
+            'destination' => $request->city_destination,
+            'weight'      => $request->weight,
+            'courier'     => $request->courier
+        ]);
 
 
         return response()->json([
             'success' => true,
             'message' => 'List Data Cost All Courir: '.$request->courier,
-            'data'    => $cost
+            'data'    => $response['rajaongkir']['results'][0]
         ]);
     }
 }

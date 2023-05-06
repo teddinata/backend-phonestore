@@ -34,11 +34,18 @@ class RajaOngkirController extends Controller
      */
     public function getCities(Request $request)
     {
-        $city = City::where('province_id', $request->province_id)->get();
-        dd($city);
+        // $city = City::where('province_id', $request->province_id)->get();
+        // city with no filter
+        if ($request->province_id) { // if province_id exist
+            $city = City::where('province_id', $request->province_id)->get();
+        } else {
+            $city = City::all();
+        }
+
+        // dd($city);
         return response()->json([
             'success' => true,
-            'message' => 'List Data Cities By Province',
+            'message' => 'List Data Cities By Province ' . $request->province_id,
             'data'    => $city
         ]);
     }

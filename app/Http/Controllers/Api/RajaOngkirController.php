@@ -47,7 +47,7 @@ class RajaOngkirController extends Controller
         // dd($city);
         return response()->json([
             'success' => true,
-            'message' => 'List Data Cities By Province ' . $request->province_id,
+            'message' => 'List Data Cities By Province ',
             'data'    => $city
         ]);
     }

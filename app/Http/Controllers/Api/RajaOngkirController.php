@@ -37,9 +37,9 @@ class RajaOngkirController extends Controller
         // $city = City::where('province_id', $request->province_id)->get();
         // city with no filter
         if ($request->province_id) { // if province_id exist
-            // $city = City::where('province_id', $request->province_id)->get();
+            $city = City::where('province_id', $request->province_id)->get();
             // use query builder SELECT * FROM `cities` WHERE province_id=10 not use eloquent
-            $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
+            // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
         } else {
             $city = City::all();
         }

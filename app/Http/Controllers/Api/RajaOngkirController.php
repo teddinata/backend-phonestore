@@ -35,19 +35,9 @@ class RajaOngkirController extends Controller
     public function getCities(Request $request)
     {
         $city = City::where('province_id', $request->province_id)->get();
-        // city with no filter
-        // if ($request->province_id) { // if province_id exist
-        //     $city = City::where('province_id', $request->province_id)->get();
-        //     // use query builder SELECT * FROM `cities` WHERE province_id=10 not use eloquent
-        //     // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
-        // } else {
-        //     $city = City::all();
-        // }
-        // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
-        // dd($city);
         return response()->json([
             'success' => true,
-            'message' => 'List Data Cities By Province ',
+            'message' => 'List Data Cities By Province',
             'data'    => $city
         ]);
     }
@@ -67,7 +57,7 @@ class RajaOngkirController extends Controller
         ])->post('https://api.rajaongkir.com/starter/cost', [
 
             //send data
-            'origin'      => 105, // ID kota Demak
+            'origin'      => 113, // ID kota Demak
             'destination' => $request->city_destination,
             'weight'      => $request->weight,
             'courier'     => $request->courier

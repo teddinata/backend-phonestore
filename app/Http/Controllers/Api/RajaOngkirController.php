@@ -34,7 +34,7 @@ class RajaOngkirController extends Controller
     public function getCities(Request $request)
     {
         // $city = City::with('province')->where('province_id', $request->province_id)->get();
-        $city = \DB::select('select * from cities where province_id = 10');
+        $city = \DB::select('select * from cities where province_id = '.$request->province_id.'');
         dd($city);
         // $city = City::with('province')->where('province_id', $request->province_id)->toSql();
         // $city = City::find(1);

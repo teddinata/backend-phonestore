@@ -57,7 +57,7 @@ class RajaOngkirController extends Controller
         ])->post('https://api.rajaongkir.com/starter/cost', [
 
             //send data
-            'origin'      => 113, // ID kota Demak
+            'origin'      => 105, // ID kota Demak
             'destination' => $request->city_destination,
             'weight'      => $request->weight,
             'courier'     => $request->courier

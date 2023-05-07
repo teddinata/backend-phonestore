@@ -38,6 +38,7 @@ class RajaOngkirController extends Controller
         // use query builder to get data by request province_id
         // $city = \DB::select(`select * from cities where province_id  = '.$request->province_id'`);
         $city = \DB::select('select * from cities where province_id  = ?', [$request->province_id]);
+        dd($request->province_id);
         // dd($request->province_id);
         // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
         // dd request params

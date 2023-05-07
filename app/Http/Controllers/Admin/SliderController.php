@@ -25,12 +25,12 @@ class SliderController extends Controller
      * @param mixed $request
      * @return void
      */
-    public function store()
+    public function store(Request $request)
     {
-        $this->validate($request. [
-            'image' => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'link'  => 'required'
-        ]);
+        // $this->validate($request. [
+        //     'image' => 'required|image|mimes:jpeg,jpg,png|max:2000',
+        //     'link'  => 'required'
+        // ]);
 
         //upload image
         $image = $request->file('image');

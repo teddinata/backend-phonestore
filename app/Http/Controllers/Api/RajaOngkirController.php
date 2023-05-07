@@ -36,10 +36,10 @@ class RajaOngkirController extends Controller
         // $city = City::with('province')->where('province_id', $request->province_id)->get();
         // $city = \DB::select('select * from cities where province_id = 10');
         // use query builder to get data by request province_id
-        // $city = \DB::select(`select * from cities where province_id  = '.$request->province_id'`);
-        $city = \DB::select('select * from cities where province_id  = ?', [$request->province_id]);
-        dd($request->province_id);
+        $city = \DB::table('cities')->select('*')->where('province_id', $request->province_id)->get();
+        // $city = \DB::select('select * from cities where province_id  = ?', [$request->province_id]);
         // dd($request->province_id);
+        dd($request->province_id);
         // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
         // dd request params
         // dd($request->province_id);

@@ -37,7 +37,7 @@ class RajaOngkirController extends Controller
         // $city = \DB::table('cities')->select('*')->where('province_id', $request->province_id)->get();
         return response()->json([
             'success' => true,
-            'message' => 'List Data Kota By Provinsi ' . $request->province_id,
+            'message' => 'List Data Kota By Provinsi ' . $request->province_id . ' ' . $city[0]->province->name,
             'data'    => $city
         ]);
     }

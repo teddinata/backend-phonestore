@@ -33,19 +33,8 @@ class RajaOngkirController extends Controller
      */
     public function getCities(Request $request)
     {
-        // $city = City::with('province')->where('province_id', $request->province_id)->get();
-        // $city = \DB::select('select * from cities where province_id = 10');
-        // use query builder to get data by request province_id
-        $city = \DB::table('cities')->select('*')->where('province_id', $request->province_id)->get();
-        // $city = \DB::select('select * from cities where province_id  = ?', [$request->province_id]);
-        // dd($request->province_id);
-        dd($request->province_id);
-        // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
-        // dd request params
-        // dd($request->province_id);
-        // $city = City::where('province_id', $request->province_id)->get();
-        // $city = City::find(1);
-        // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
+        $city = City::with('province')->where('province_id', $request->province_id)->get();
+        // $city = \DB::table('cities')->select('*')->where('province_id', $request->province_id)->get();
         return response()->json([
             'success' => true,
             'message' => 'List Data Kota By Provinsi ' . $request->province_id,

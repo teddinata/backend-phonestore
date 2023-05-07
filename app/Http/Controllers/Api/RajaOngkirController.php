@@ -35,7 +35,8 @@ class RajaOngkirController extends Controller
     {
         // $city = City::with('province')->where('province_id', $request->province_id)->get();
         $city = \DB::select('select * from cities where province_id = '.$request->province_id.'');
-        dd($city);
+        // dd request params
+        dd($request);
         // $city = City::with('province')->where('province_id', $request->province_id)->toSql();
         // $city = City::find(1);
         // $city = \DB::table('cities')->where('province_id', $request->province_id)->get();
